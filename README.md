@@ -1,5 +1,5 @@
 # avs_doc
-Docs for the automated vehicle system
+Docs for the autonomous vehicle system platform
 
 ## Setup
 
