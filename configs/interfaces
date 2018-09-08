@@ -1,0 +1,10 @@
+
+
+iface tun0 inet static
+    pre-up ssh -f -w 0:0 master 'ifdown tun0; ifup tun0'
+    pre-up sleep 5
+    address 10.0.0.200
+    pointopoint 10.0.0.100
+    netmask 255.255.255.255
+    up ip route add 10.0.0.0/24 via 10.0.0.200
+    down ip route del 10.0.0.0/24 via 10.0.0.200

@@ -1,0 +1,12 @@
+#!/bin/bash
+#place theses lines into /usr/bin/start_intello_tunnel
+sudo -s
+su root
+
+cd /root/.ssh
+echo "Adding key to ssh-agent"
+eval $(ssh-agent)
+ssh-add agv
+
+echo "Connecting to Intello master server
+ifup tun0
