@@ -10,7 +10,7 @@ If you prefer to setup your network automatically by just one command line, call
 
 .. code-block:: Bash
 
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo bash -c "$(curl -L https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/scripts/network_setup.sh)"
 
 
 Connecting to master server 
