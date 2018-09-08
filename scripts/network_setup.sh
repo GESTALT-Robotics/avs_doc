@@ -14,20 +14,24 @@ master_ip=$1
 private_key=$2
 public_key=$3
 
-sudo -s
-su root
-mkdir -p /root/.ssh
-cp $private_key /root/.ssh/agv
-cp $public_key /root/.ssh/agv.pub
-chmod 700 /root/.ssh
-chmod 600 /root/.ssh/*
+echo "Copying the keys into /root/.ssh ..."
+
+sudo mkdir -p /root/.ssh
+sudo cp $private_key /root/.ssh/agv
+sudo cp $public_key /root/.ssh/agv.pub
+sudo chmod 700 /root/.ssh
+sudo chmod 600 /root/.ssh/*
+sudo chown root:root -R /root/.ssh
 
 
-curl https://raw.github.com/avs_doc/configs/interfaces >> /etc/network/interfaces
+echo "Setting up the network interfaces..."
+sudo curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces >> /etc/network/interfaces
 
-echo "$master_ip  master" >> /etc/hosts
-echo "10.0.0.100  ros_master" >> /etc/hosts
-echo "10.0.0.200  robot" >> /etc/hosts
+echo "Setting up the hosts names ..."
+sudo echo "$master_ip  master" >> /etc/hosts
+sudo echo "10.0.0.100  ros_master" >> /etc/hosts
+sudo echo "10.0.0.200  robot" >> /etc/hosts
 
-curl https://raw.github_com/avs_doc/scripts/start_intello_tunnel > /usr/bin/start_intello_tunnel
+echo "Setting up the tunnel start script ..."
+sudo curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/scripts/start_intello_tunnel > /usr/bin/start_intello_tunnel
 
