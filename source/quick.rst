@@ -94,7 +94,7 @@ If everything went fine, you will be able to ping ``10.0.0.100`` after you have 
 
 
 ROS setup
-^^^^^^^^^^
+==============
 
 Tell ROS about the network configuration and add these lines to ``~/.bashrc``:
 
