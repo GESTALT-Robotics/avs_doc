@@ -72,12 +72,22 @@ echo "Defaults    env_keep+=SSH_AUTH_SOCK" >> /etc/sudoers
 
 echo "Setting up the network interfaces..."
 user_name=$USER
-sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces | sed \"s/_user_/$user_name/\"  >> /etc/network/interfaces"
+sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces | sed \"s/_user_/$user_name/\"  >> /tmp/interfaces"
+#remove previous intello config if any
+sudo -- sh -c  "sed  -e '/#intello-start/,/#intello-end/c\' /etc/network/interfaces > /tmp/ifaces.tmp && mv /tmp/ifaces.tmp /etc/network/interfaces"
+#append the fresh intello config to the clean interfaces file
+sudo -- sh -c  'cat /tmp/interfaces  >> /etc/network/interfaces'
+
+
 
 echo "Setting up the hosts names ..."
+#remove previous intello config, if any, from the current hosts files
+sudo -- sh -c  "sed  -e '/#intello-start/,/#intello-end/c\' /etc/hosts > /tmp/hosts.tmp && mv /tmp/hosts.tmp /etc/hosts"
+sudo -- sh -c "echo \"#intello-start\" >> /etc/hosts" 
 sudo -- sh -c "echo \"$master_ip  intello_master\" >> /etc/hosts" 
 sudo -- sh -c "echo \"10.0.0.100  ros_master\" >> /etc/hosts"
 sudo -- sh -c "echo \"10.0.0.200  robot\" >> /etc/hosts"
+sudo -- sh -c "echo \"#intello-end\" >> /etc/hosts" 
 
 echo "Setting up the tunnel start script ..."
 sudo -- sh -c "curl -L https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/scripts/start_intello_tunnel > /usr/bin/start_intello_tunnel"
