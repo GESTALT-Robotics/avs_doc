@@ -67,4 +67,6 @@ sudo -- sh -c "echo \"10.0.0.200  robot\" >> /etc/hosts"
 
 echo "Setting up the tunnel start script ..."
 sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/scripts/start_intello_tunnel > /usr/bin/start_intello_tunnel"
+sudo chmod 755 /usr/bin/start_intello_tunnel
+
 

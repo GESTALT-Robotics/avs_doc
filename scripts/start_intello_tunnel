@@ -1,5 +1,6 @@
 #!/bin/bash
 #place theses lines into /usr/bin/start_intello_tunnel
+curr_dir=$(pwd)
 sudo -s
 su root
 
@@ -8,5 +9,9 @@ echo "Adding key to ssh-agent"
 eval $(ssh-agent)
 ssh-add agv
 
-echo "Connecting to Intello master server
+echo "Connecting to Intello master server"
 ifup tun0
+
+exit
+
+cd $curr_dir
