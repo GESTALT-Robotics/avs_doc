@@ -72,7 +72,7 @@ echo "Defaults    env_keep+=SSH_AUTH_SOCK" >> /etc/sudoers
 
 echo "Setting up the network interfaces..."
 user_name=$USER
-sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces | sed \"s/_user_/$user_name/\"  >> /tmp/interfaces"
+sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces | sed \"s/_user_/$user_name/\"  > /tmp/interfaces"
 #remove previous intello config if any
 sudo -- sh -c  "sed  -e '/#intello-start/,/#intello-end/c\' /etc/network/interfaces > /tmp/ifaces.tmp && mv /tmp/ifaces.tmp /etc/network/interfaces"
 #append the fresh intello config to the clean interfaces file
