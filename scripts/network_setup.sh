@@ -49,17 +49,26 @@ fi
 
 echo "Copying the keys into /root/.ssh ..."
 
-sudo mkdir -p /root/.ssh
-sudo cp $private_key /root/.ssh/agv
-sudo cp $public_key /root/.ssh/agv.pub
-sudo chmod 700 /root/.ssh
-sudo chmod 600 /root/.ssh/*
-sudo chown root:root -R /root/.ssh
+mkdir -p /$HOME/.ssh
+cp -v $private_key /$HOME/.ssh/agv
+cp -v $public_key /$HOME/.ssh/agv.pub
+chmod 700 /$HOME/.ssh
+chmod 600 /$HOME/.ssh/*
 
-sudo echo "eval $(ssh-add)" >> /root/.bashrc
-sudo echo "ssh-add /root/.ssh/agv" >> /root/.bashrc
+# sudo mkdir -p /root/.ssh
+# sudo cp $private_key /root/.ssh/agv
+# sudo cp $public_key /root/.ssh/agv.pub
+# sudo chmod 700 /root/.ssh
+# sudo chmod 600 /root/.ssh/*
+# sudo chown root:root -R /root/.ssh
 
 
+
+#sudo echo "eval $(ssh-add)" >> /root/.bashrc
+#sudo echo "ssh-add /root/.ssh/agv" >> /root/.bashrc
+
+#helps to use always the same ssh-agent between root and $user. https://serverfault.com/questions/107187/ssh-agent-forwarding-and-sudo-to-another-user
+echo "Defaults    env_keep+=SSH_AUTH_SOCK" >> /etc/sudoers
 
 echo "Setting up the network interfaces..."
 sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces >> /etc/network/interfaces"
@@ -70,7 +79,7 @@ sudo -- sh -c "echo \"10.0.0.100  ros_master\" >> /etc/hosts"
 sudo -- sh -c "echo \"10.0.0.200  robot\" >> /etc/hosts"
 
 echo "Setting up the tunnel start script ..."
-sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/scripts/start_intello_tunnel > /usr/bin/start_intello_tunnel"
+sudo -- sh -c "curl -L https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/scripts/start_intello_tunnel > /usr/bin/start_intello_tunnel"
 sudo chmod 755 /usr/bin/start_intello_tunnel
 
 
