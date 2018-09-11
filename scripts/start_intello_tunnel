@@ -1,20 +1,8 @@
 #!/bin/bash
-#place theses lines into /usr/bin/start_intello_tunnel
-curr_dir=$(pwd)
-#sudo -s
-#su root
-
+#place this file as /usr/bin/start_intello_tunnel
 echo "shutting down tun0 if active..."
 sudo ifdown tun0
-
-#cd /root/.ssh
-#echo "Adding key to ssh-agent"
-#eval $(ssh-agent)
-#ssh-add agv
 
 echo "Connecting to Intello master server"
 sudo ifup tun0
 
-#exit
-
-#cd $curr_dir
