@@ -8,3 +8,4 @@ iface tun0 inet static
     netmask 255.255.255.255
     up ip route add 10.0.0.0/24 via 10.0.0.200
     down ip route del 10.0.0.0/24 via 10.0.0.200
+    

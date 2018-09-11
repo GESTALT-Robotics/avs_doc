@@ -71,7 +71,7 @@ chmod 600 /$HOME/.ssh/*
 echo "Defaults    env_keep+=SSH_AUTH_SOCK" >> /etc/sudoers
 
 echo "Setting up the network interfaces..."
-sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces | sed -En \"s/_user_/$USER/p\"  >> /etc/network/interfaces"
+sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces | sed \"s/_user_/$USER/\"  >> /etc/network/interfaces"
 
 echo "Setting up the hosts names ..."
 sudo -- sh -c "echo \"$master_ip  intello_master\" >> /etc/hosts" 
