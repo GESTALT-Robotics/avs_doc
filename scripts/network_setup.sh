@@ -56,12 +56,16 @@ sudo chmod 700 /root/.ssh
 sudo chmod 600 /root/.ssh/*
 sudo chown root:root -R /root/.ssh
 
+sudo echo "eval $(ssh-add)" >> /root/.bashrc
+sudo echo "ssh-add /root/.ssh/agv" >> /root/.bashrc
+
+
 
 echo "Setting up the network interfaces..."
 sudo -- sh -c "curl https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/configs/interfaces >> /etc/network/interfaces"
 
 echo "Setting up the hosts names ..."
-sudo -- sh -c "echo \"$master_ip  master\" >> /etc/hosts" 
+sudo -- sh -c "echo \"$master_ip  intello_master\" >> /etc/hosts" 
 sudo -- sh -c "echo \"10.0.0.100  ros_master\" >> /etc/hosts"
 sudo -- sh -c "echo \"10.0.0.200  robot\" >> /etc/hosts"
 
