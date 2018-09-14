@@ -11,9 +11,11 @@ Simply open
 
 	<ip_of_your_server>:5000
 
+
 in the browser:
 
 .. image:: _static/images/overview.png
+
 
 Driving the robot
 -----------------------
@@ -21,6 +23,7 @@ Driving the robot
 In order to drive the robot directly via remote control, simply drag the controller to the top to drive forward etc.
 
 .. image:: _static/images/usage/nipple.gif
+
 
 
 Calling AGV to a position on map
