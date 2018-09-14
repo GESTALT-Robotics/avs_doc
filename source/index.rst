@@ -23,7 +23,7 @@ Welcome to **Intello** by Gestalt Robotics
 
 .. image:: _static/images/intro_image.png
 
-**Intello** is an intelligence stack for mobile transport robots. Extend your hardware platform with an optimized ROS-based architecture for autonomous navigation and user-oriented control. You will just need to connect your mobile platform to the availble Intello stack in the cloud in order to provide full value autonomous capabilites with your robot hardware.
+**Intello** is an intelligence stack for mobile transport robots. Extend your hardware platform with an optimized ROS-based architecture for autonomous navigation and user-oriented control. You will just need to connect your mobile platform to the available Intello stack in the cloud in order to provide full value autonomous capabilities with your robot hardware.
 The Intello stack includes:
 
 * **Web-based user interface**. Makes it possible to define points of interest on a map, to create jobs by targeting multiple POIs in a row and to directly control the robot via a fancy remote controller.

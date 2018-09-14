@@ -9,6 +9,15 @@
 #3. full path to the public key, e.g. agv.pub
 
 
+
+user_name="$USER"
+
+if [ "$user_name" = "root" ]; then
+  echo "Please start this script as a normal user. Not root"
+  exit -1
+fi
+
+
 echo "Enter the IP of your deticated Initello master server:"
 read master_ip
 #check if the server is reachable
@@ -68,7 +77,8 @@ chmod 600 /$HOME/.ssh/*
 #sudo echo "ssh-add /root/.ssh/agv" >> /root/.bashrc
 
 #helps to use always the same ssh-agent between root and $user. https://serverfault.com/questions/107187/ssh-agent-forwarding-and-sudo-to-another-user
-echo "Defaults    env_keep+=SSH_AUTH_SOCK" >> /etc/sudoers
+echo "Setting up ssh-agent common env"
+sudo -- sh -c " echo \"Defaults    env_keep+=SSH_AUTH_SOCK\" >> /etc/sudoers"
 
 echo "Setting up the network interfaces..."
 nonroot_user_name=$USER

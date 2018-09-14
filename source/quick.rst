@@ -22,6 +22,7 @@ If everything went fine, you will be able to ping ``10.0.0.100`` after you have 
 .. code-block:: python
 
     start_intello_tunnel
+    #test:
     ping 10.0.0.100
 
 

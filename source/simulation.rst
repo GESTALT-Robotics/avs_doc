@@ -14,3 +14,9 @@ Go to the repository root directory <link> and call
 
 	docker build -f simulator/Dockerfile -network host -t intello_simulator .
 
+
+
+Start
+==========
+
+More infos will come here very soon (Before end of Sep).
