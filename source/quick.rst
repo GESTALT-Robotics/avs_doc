@@ -6,7 +6,7 @@ Network setup
 =================
 
 Prepare your robot for ROS. Make sure it connects via a tunnel to the master server, publishes the laser scan, odometry and the required transforms (`TFs <http://wiki.ros.org/tf>`_). The following instructions assume you are under Ubuntu 16.04 LTS or newer.
-You will need a dedicated machine (the master) available. To get one, please contat info@gestalt-robotics.com.
+You will need a dedicated machine (the master) available. To get one, please contact Gestalt Robotics.
 The connection is established by a vpn tunnel to your dedicated instance in the cloud. 
 
 Make sure you have the required credentials in place and setup your network configuration automatically by just one command line:
