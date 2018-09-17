@@ -1,8 +1,8 @@
 #!/bin/bash
 #place this file as /usr/bin/start_intello_tunnel
 echo "shutting down tun0 if active..."
-sudo ifdown tun0
+sudo ifdown tun0 > /dev/null 2>&1
 
 echo "Connecting to Intello master server"
-sudo ifup tun0
+sudo ifup tun0 >> /var/log/intello 2>&1
 

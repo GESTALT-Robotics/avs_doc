@@ -13,7 +13,7 @@ Make sure you have the required credentials in place and setup your network conf
 
 .. code-block:: Bash
     
-    sudo bash -c "$(curl -L https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/scripts/network_setup.sh)"
+    bash -c "$(curl -L https://raw.githubusercontent.com/GESTALT-Robotics/avs_doc/master/scripts/network_setup.sh)"
 
 
 
