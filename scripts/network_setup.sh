@@ -104,3 +104,13 @@ sudo -- sh -c "curl -L https://raw.githubusercontent.com/GESTALT-Robotics/avs_do
 sudo chmod 755 /usr/bin/start_intello_tunnel
 
 
+#setting UP ntp
+
+echo "Would you like to override the NTP time by the Intello server? [y/n]"
+echo "This might lead to inprecise global timing, but is required to synchronize timestamps"
+echo "between the robot and application."
+printf "[y/n]: "
+read use_ntp
+
+echo "Ok. Using NTP."
+
