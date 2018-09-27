@@ -2,8 +2,15 @@ How to use
 #################
 
 
+.. |date| date::
+
+
 Open the Web-Based User Interface
 ------------------------------------
+Via the UI you have the full control of the agv mission processing and navigation states.
+The core features as of today (|date|).
+
+You can use the UI using your tablet or a desktop computer (Windows, Mac, Linux).
 
 Simply open 
 
@@ -12,7 +19,9 @@ Simply open
 	<ip_of_your_server>:5000
 
 
-in the browser:
+in the browser. Please get the ip of your server from GESTALT in case of a demo.
+The view you will get, will look similar to this one: 
+A map of the environment and all the control layouts.
 
 .. image:: _static/images/overview.png
 
@@ -23,6 +32,11 @@ Driving the robot
 In order to drive the robot directly via remote control, simply drag the controller to the top to drive forward etc.
 
 .. image:: _static/images/usage/nipple.gif
+
+
+Creating a Map
+-------------------
+
 
 
 
@@ -94,3 +108,12 @@ You can decide whether you want to drive the POIs in loop or to target the list 
 
 
 .. image:: _static/images/usage/start_mission.gif
+
+
+Create a prohibited area
+--------------------------
+The AGV is expected not to enter some areas in the factory. You simply can mark them on the map with a view clicks:
+* Click on the map and select "prohibited area"
+* Draw the polygon describing the area. Finish the drawing by clicking on the start point. 
+
+.. image:: _static/images/usage/create_prohibited_area.gif
